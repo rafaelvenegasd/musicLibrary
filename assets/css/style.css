@@ -1,0 +1,34 @@
+/* Jquery */
+
+.bg-Dark{
+    background-color: #1c2331;
+}
+
+.bg-Darker{
+    background-color: #161c27;
+}
+
+.social a{
+    padding: 15px;
+}
+
+.center{
+    text-align-last: center;
+    text-align: -webkit-center;
+}
+
+.white{
+    color: white;
+}
+
+.border{
+    border: #161c27;
+}
+
+.space{
+    line-height: 2.5rem;
+}
+
+main{
+    height: 500px;
+}

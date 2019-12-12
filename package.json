@@ -1,0 +1,26 @@
+{
+  "name": "musicLibrary",
+  "version": "1.0.0",
+  "description": "Music Libary es un proyecto que presenta la opción de realizar búsquedas y mostrar resultados en un catálogo, a través de la conexión con la API de itunes.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rafaelvenegasd/musicLibrary.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rafaelvenegasd/musicLibrary/issues"
+  },
+  "homepage": "https://github.com/rafaelvenegasd/musicLibrary#readme",
+  "devDependencies": {
+    "eslint": "^6.7.2"
+  },
+  "dependencies": {
+    "jquery": "^3.4.1"
+  }
+}

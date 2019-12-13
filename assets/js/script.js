@@ -15,7 +15,7 @@ $("#submit").click(function(event){
             var itemArtist = new Artist(data['artistName'], data['primaryGenreName'], data['artistLinkUrl']);
             // Container
             var myNode = document.createElement('div');
-            myNode.classList.add('card', 'col-md-2', 'ml-1', 'mb-2');
+            myNode.classList.add('card');
             // Body of the container
             var myNodeCardBody = document.createElement('div');
             myNodeCardBody.classList.add('card-body');

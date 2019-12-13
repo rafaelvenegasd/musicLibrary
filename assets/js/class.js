@@ -4,13 +4,13 @@
 //     }
 // }
 
-// class Artist {
-//     constructor(artistName, musicGenre, link){
-//         this.artistName = artistName;
-//         this.musicGenre = musicGenre;
-//         this.link = link;
-//     }
-// }
+class Artist {
+    constructor(artistName, musicGenre, link){
+        this.artistName = artistName;
+        this.musicGenre = musicGenre;
+        this.link = link;
+    }
+}
 
 // class Album extends Artist {
 //     constructor(albumName, caratula, artistName, price, numSongs, creationDate, musicGenre){

@@ -16,8 +16,8 @@
         <form class="form-inline">
             <div>
             <select name="type" id="type">
-                <option value="Song">Song</option>
                 <option value="musicArtist">musicArtist</option>
+                <option value="musicTrack">musicTrack</option>
                 <option value="Album">Album</option>
                 <option value="musicVideo">musicVideo</option>
             </select>
@@ -39,12 +39,11 @@
             <input type="text" id="limit" placeholder="Limit">
             
         </section>
-        
     </head>
 
     <main>
-        <section class="filter">
-
+        <section>
+            <div id="display" class="d-flex"> </div>
         </section>
     </main>
 
@@ -71,6 +70,7 @@
 </div>
 <script src="./node_modules/jquery/dist/jquery.min.js"></script>
 <script src="./assets/js/class.js"></script>
+<script src="./assets/js/catalog.js"></script>
 <script src="./assets/js/script.js"></script>
 </body>
 </html>

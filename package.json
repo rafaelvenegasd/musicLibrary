@@ -1,5 +1,5 @@
 {
-  "name": "musicLibrary",
+  "name": "musiclibrary",
   "version": "1.0.0",
   "description": "Music Libary es un proyecto que presenta la opción de realizar búsquedas y mostrar resultados en un catálogo, a través de la conexión con la API de itunes.",
   "main": "index.js",

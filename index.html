@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Music Library</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
-<link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
 <div class="container">
@@ -14,14 +14,38 @@
         <nav class="navbar bg-Darker white">
         <a class="navbar-brand">Music Library</a>
         <form class="form-inline">
-            <input class="form-control mr-sm-2" type="search" id="inputSearch" placeholder="Search" aria-label="Search">
+            <div>
+            <select name="type" id="type">
+                <option value="Song">Song</option>
+                <option value="musicArtist">musicArtist</option>
+                <option value="Album">Album</option>
+                <option value="musicVideo">musicVideo</option>
+            </select>
+            </div>
+            <input class="form-control mr-sm-2" type="search" id="inputSearch" placeholder="Search"/>
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="submit">Search</button>
         </form>
         </nav>
+        <section>
+            <h2>Aditional Parameters</h2>
+            <select name="country" id="country"> Country
+                <option value="ES">Spain</option>
+                <option value="EC">Ecuador</option>
+            </select>
+            <select name="explicit" id="explicit"> Explicit Content
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+            <input type="text" id="limit" placeholder="Limit">
+            
+        </section>
+        
     </head>
 
     <main>
+        <section class="filter">
 
+        </section>
     </main>
 
     <footer id="footer" class=" container p-0 mb-2 bg-Dark white">
@@ -46,6 +70,7 @@
     </footer>
 </div>
 <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+<script src="./assets/js/class.js"></script>
 <script src="./assets/js/script.js"></script>
 </body>
 </html>

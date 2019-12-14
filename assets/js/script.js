@@ -1,60 +1,33 @@
+//** This file contain the function search*/
+
 $("#submit").click(function(event){
     event.preventDefault();
-
     //Validation
     if ($("#inputSearch").val() == "" || $("#inputSearch").val() == null){
-        alert("error, por favor escriba algo en el buscador");
+        alert("Por favor escriba algo en el buscador");
     }
 
     else{
         clean($("#display"));
-        var finder = new Search($("#inputSearch").val(), $("#country").val(), $("#limit").val(), $("#explicit").val(), $("#type").val()); 
-        var datos = $.ajax(
-            {
-            type: "GET",
-            dataType: "jsonp",
-            url : "https://itunes.apple.com/search?" + "term=" + finder.term + "&" + "country=" + finder.country  + "&" + "explicit=" + finder.explicit  + "&" + "limit=" + finder.limit + "&" + "entity=" + finder.type 
-        })
-
-        .done(function() {
-            console.log(datos.responseJSON['results']);
-            for (var data of datos.responseJSON['results']) {
-                // New Item
-                var itemArtist = new Artist(data['artistName'], data['primaryGenreName'], data['artistLinkUrl']);
-                // Container
-                var myNode = document.createElement('div');
-                myNode.classList.add('card');
-                // Body of the container
-                var myNodeCardBody = document.createElement('div');
-                myNodeCardBody.classList.add('card-body');
-                // Tittle
-                var myNodeTitle = document.createElement('h4');
-                myNodeTitle.classList.add('card-title');
-                myNodeTitle.textContent = itemArtist.artistName;
-                // Genre
-                var myNodeGenre = document.createElement('p');
-                myNodeGenre.textContent = itemArtist.musicGenre;
-                // Link
-                var myNodeLink = document.createElement('p');
-                myNodeLink.textContent = itemArtist.link;
-                 // Inserting
-                myNodeCardBody.append(myNodeTitle);
-                myNodeCardBody.append(myNodeGenre);
-                myNodeCardBody.append(myNodeLink);
-                myNode.append(myNodeCardBody);
-                $("#display").append(myNode);    
-            }
-        })
-        .fail(function() {
-        console.log("error");
-        });
-
+        // Type's Search Validation
+        var type ="";
+        switch ($("#type").val()) {
+            case "Artist":
+                type = "musicArtist"
+                searchArtist();
+                break;
+            case "Song":
+                type = "musicTrack"
+                searchSong();
+                break;
+            case "Album":
+                type = "album"
+                searchAlbum();
+                break;
+            case "Music Video":
+                type = "musicVideo"
+                searchVideo();
+                break;
+        }
     }   
-    
-
 })
-
-
-function clean(element){
-    element.empty();
-}

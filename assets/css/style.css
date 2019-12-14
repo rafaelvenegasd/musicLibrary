@@ -34,3 +34,14 @@
     padding: 10px;
 }
 
+.display{
+    float: left;
+    width: 80%;
+}
+
+aside{
+    float: right;
+    width: 20%;
+}
+
+

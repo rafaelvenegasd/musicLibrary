@@ -1,8 +1,6 @@
 //** This file contain the functions for do the different types of searchs */
-
-var finder = new Search($("#inputSearch").val(), $("#country").val(), $("#limit").val(), $("#explicit").val(), type); 
-
 function searchArtist(){
+    var finder = new Search($("#inputSearch").val(), $("#country").val(), $("#limit").val(), $("#explicit").val(), "musicArtist"); 
     var datos = $.ajax(
         {
         type: "GET",
@@ -46,6 +44,7 @@ function searchArtist(){
 }
 
 function searchAlbum(){
+    var finder = new Search($("#inputSearch").val(), $("#country").val(), $("#limit").val(), $("#explicit").val(), "musicTrack"); 
     var datos = $.ajax(
         {
         type: "GET",
@@ -54,11 +53,11 @@ function searchAlbum(){
     })
     
     .done(function() {
-        console.log(datos.responseJSON['results']);
+        console.log(datos.responseJSON['results']); 
     
         for (var data of datos.responseJSON['results']) {
             // New Object Album
-            var itemArtist = new Artist(data['artistName'], data['primaryGenreName'], data['artistLinkUrl']);
+            var itemAlbum = new Album(data['collectionCensoredName'], data['artworkUrl100'], data['artistName'], data['collectionPrice'], data['trackCount'], data['releaseDate'], data['primaryGenreName']);
             // Container
             var myNode = document.createElement('div');
             myNode.classList.add('card');
@@ -68,17 +67,34 @@ function searchAlbum(){
             // Tittle
             var myNodeTitle = document.createElement('h4');
             myNodeTitle.classList.add('card-title');
-            myNodeTitle.textContent = itemArtist.artistName;
+            myNodeTitle.textContent = itemAlbum.albumName;
+            // ArtistName
+            var myNodeArtistName = document.createElement('p');
+            myNodeArtistName.textContent = itemAlbum.artistName;                       
+            // Caratula
+            var myNodeCaratula = document.createElement('img');
+            myNodeCaratula.src = itemAlbum.caratula;
+            // myNodeCaratula.classList.add('catalog-item');                      
+            // Price
+            var myNodePrice = document.createElement('p');
+            myNodePrice.textContent = itemAlbum.price;                        
+            // NumSongs
+            var myNodeNumSongs = document.createElement('p');
+            myNodeNumSongs.textContent = itemAlbum.numSongs;                        
+            // CreationDate
+            var myNodeCreationDate = document.createElement('p');
+            myNodeCreationDate.textContent = itemAlbum.creationDate;                        
             // Genre
             var myNodeGenre = document.createElement('p');
-            myNodeGenre.textContent = itemArtist.musicGenre;
-            // Link
-            var myNodeLink = document.createElement('p');
-            myNodeLink.textContent = itemArtist.link;
+            myNodeGenre.textContent = itemAlbum.musicGenre;
                 // Inserting
             myNodeCardBody.append(myNodeTitle);
+            myNodeCardBody.append(myNodeArtistName);
+            myNodeCardBody.append(myNodeCaratula);
+            myNodeCardBody.append(myNodePrice);
+            myNodeCardBody.append(myNodeNumSongs);
+            myNodeCardBody.append(myNodeCreationDate);
             myNodeCardBody.append(myNodeGenre);
-            myNodeCardBody.append(myNodeLink);
             myNode.append(myNodeCardBody);
             $("#display").append(myNode);    
         }
@@ -89,6 +105,7 @@ function searchAlbum(){
 }
 
 function searchSong(){
+    var finder = new Search($("#inputSearch").val(), $("#country").val(), $("#limit").val(), $("#explicit").val(), "album"); 
     var datos = $.ajax(
         {
         type: "GET",
@@ -101,7 +118,7 @@ function searchSong(){
     
         for (var data of datos.responseJSON['results']) {
             // New Object Song
-            var itemArtist = new Artist(data['artistName'], data['primaryGenreName'], data['artistLinkUrl']);
+            var itemArtist = new Song(data['artistName'], data['primaryGenreName'], data['artistLinkUrl']);
             // Container
             var myNode = document.createElement('div');
             myNode.classList.add('card');
@@ -132,6 +149,7 @@ function searchSong(){
 }
 
 function searchVideo(){
+    var finder = new Search($("#inputSearch").val(), $("#country").val(), $("#limit").val(), $("#explicit").val(), "musicVideo"); 
     var datos = $.ajax(
         {
         type: "GET",

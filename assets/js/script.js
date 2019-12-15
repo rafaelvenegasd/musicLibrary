@@ -13,21 +13,22 @@ $("#submit").click(function(event){
         var type ="";
         switch ($("#type").val()) {
             case "Artist":
-                type = "musicArtist"
                 searchArtist();
                 break;
+
             case "Song":
-                type = "musicTrack"
-                searchSong();
+               searchSong();
                 break;
+
             case "Album":
-                type = "album"
-                searchAlbum();
+            searchAlbum();
                 break;
+
             case "Music Video":
-                type = "musicVideo"
-                searchVideo();
+               searchVideo();
                 break;
         }
+        console.log(type);
+
     }   
 })

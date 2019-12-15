@@ -117,7 +117,7 @@ function searchSong(){
     
         for (var data of datos.responseJSON['results']) {
             // New Object Song
-            var itemSong = new Song(data['trackName'], data['artworkUrl100'], data['artistName'], data['collectionName'], data['trackPrice'], data['trackTimeMillis'], data['releaseDate'], data['primaryGenreName'], data['previewUrl'], data['trackViewUrl']);
+            var itemSong = new Song(data['trackId'], data['trackName'], data['artworkUrl100'], data['artistName'], data['collectionName'], data['trackPrice'], data['trackTimeMillis'], data['releaseDate'], data['primaryGenreName'], data['previewUrl'], data['trackViewUrl']);
             // Container
             var myNode = document.createElement('div');
             myNode.classList.add('card');
@@ -151,13 +151,27 @@ function searchSong(){
             myNodeGenre.textContent = "Genre: " + itemSong.musicGenre;
             // Audio
             var myNodeAudio = document.createElement('audio');
+            myNodeAudio.setAttribute('type', 'audio/m4a');
+            myNodeAudio.id = "id" + itemSong.id;
             myNodeAudio.src = itemSong.audio;
+            //Audio controls
+            var myNodeDivAudio = document.createElement('div');
+            var myNodebuttonPlay = document.createElement('button');
+            myNodebuttonPlay.id = "play" + itemSong.id;
+            myNodebuttonPlay.textContent = "Play";
+            var myNodebuttonPause = document.createElement('button');
+            myNodebuttonPause.id = "pause" + itemSong.id;
+            myNodebuttonPause.textContent = "Pause";
+            var myNodebuttonStop = document.createElement('button');
+            myNodebuttonStop.id = "stop" + itemSong.id;
+            myNodebuttonStop.textContent = "Stop";
+
             // Link
             var myNodeLink = document.createElement('a');
             myNodeLink.textContent = "Link";
             myNodeLink.target = "_blank";
             myNodeLink.href = itemSong.link;
-                // Inserting
+            // Inserting
             myNodeCardBody.append(myNodeTitle);
             myNodeCardBody.append(myNodeCaratula);
             myNodeCardBody.append(myNodeArtistName);
@@ -167,10 +181,25 @@ function searchSong(){
             myNodeCardBody.append(myNodeCreationDate);
             myNodeCardBody.append(myNodeGenre);
             myNodeCardBody.append(myNodeAudio);
-            myNodeCardBody.append(myNodeLink);
+            myNodeCardBody.append(myNodeDivAudio);
+            myNodeCardBody.append(myNodeDivAudio);
+            myNodeDivAudio.append(myNodebuttonPlay);
+            myNodeDivAudio.append(myNodebuttonPause);
+            myNodeDivAudio.append(myNodebuttonStop);
             myNode.append(myNodeCardBody);
-            $("#display").append(myNode);    
+            $("#display").append(myNode);  
+
+            document.getElementById("play"+itemSong.id).onclick = function(){
+                document.getElementById("id"+itemSong.id).play();
+            }   
+            document.getElementById("pause"+itemSong.id).onclick = function(){
+                document.getElementById("id"+itemSong.id).pause();
+            } 
+            document.getElementById("stop"+itemSong.id).onclick = function(){
+                document.getElementById("id"+itemSong.id).load();
+            } 
         }
+
     })
     .fail(function() {
     console.log("error");

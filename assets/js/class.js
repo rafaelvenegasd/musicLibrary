@@ -17,7 +17,6 @@ class Artist {
 class Album extends Artist{
     constructor(albumName, caratula, artistName, price, numSongs, creationDate, musicGenre){
         super(artistName);
-            this.artistName = artistName;
             this.albumName = albumName;
             this.caratula = caratula;
             this.price = price;
@@ -30,6 +29,8 @@ class Album extends Artist{
 class Song extends (Artist, Album) {
     constructor(songName, caratula, artistName, albumName, price, lenght, creationDate, musicGenre, audio, link){
         super(artistName, albumName);
+            this.artistName = artistName;
+            this.albumName = albumName;
             this.songName = songName;
             this.caratula = caratula;
             this.price = price;

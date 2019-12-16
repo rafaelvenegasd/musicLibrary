@@ -24,7 +24,7 @@ $("#submit").click(function(event){
             searchAlbum();
                 break;
 
-            case "Music Video":
+            case "Music-Video":
                searchVideo();
                 break;
         }

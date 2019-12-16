@@ -1,11 +1,5 @@
 //** This file contain all the classes for save data get from the API */
 
-// class Library { 
-//     constructor(content){
-//         this.content = content;
-//     }
-// }
-
 class Artist {
     constructor(artistName, musicGenre, link){
         this.artistName = artistName;
@@ -45,12 +39,13 @@ class Song extends (Artist, Album) {
 
 
 class MusicVideo extends (Artist, Song) {
-    constructor(musicVideoName, caratula, artistName, songName, lenght, creationDate, musicGenre, video, link){
+    constructor(id, songName, caratula, artistName, price, creationDate, lenght, musicGenre, video, link){
         super(artistName, songName);
-            this.musicVideoName = musicVideoName;
+            this.id = id;
             this.caratula = caratula;
-            this.lenght = lenght;
+            this.price = price;
             this.creationDate = creationDate;
+            this.lenght = lenght;
             this.musicGenre = musicGenre;
             this.video = video;
             this.link = link;

@@ -12,19 +12,19 @@
 <div class="container">
     <head>
         <nav class="navbar bg-Darker white">  
-        <a class="navbar-brand">Music Library</a>
+        <a id="logo" class="navbar-brand white" href="index.html">Music Library</a>
         <form class="form-inline">
             <select name="type" id="type" class="custom-select mr-sm-2">
                 <option value="Artist">Artist</option>
                 <option value="Song">Song</option>
                 <option value="Album">Album</option>
-                <option value="Music-Video">Music Video</option>
+                <option value="Music-Video">Music-Video</option>
             </select>
             <input class="form-control mr-sm-2" type="search" id="inputSearch" placeholder="Search"/>
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="submit">Search</button>
         </form>
         </nav>
-        <section class="text-center">
+        <section class="text-center mt-4">
             <h2>Aditional Parameters</h2>
             <div class=" d-flex justify-content-between">
                 <div class="d-flex">
@@ -49,13 +49,16 @@
         </section>
     </head>
 
-    <main class="d-table">
+    <main class="d-table mt-3">
         <section class="d-flex display">
-            <div id="display" class="card-columns container"> </div>
+            <div id="display" class="card-columns"> </div>
         </section>
         <aside>
-            <h4>Favorites</h4>
-            <ul></ul>
+            <div class="ml-4">
+                <h4>Favorites</h4>
+                <ul></ul>
+            </div>
+            
         </aside>
     </main>
 

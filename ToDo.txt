@@ -1,5 +1,4 @@
 //In general 
-autocomplete of the inputSearch
 validate if the filters are off
 save in localstorage
 add to favorites

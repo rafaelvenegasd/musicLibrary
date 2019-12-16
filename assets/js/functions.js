@@ -1,6 +1,7 @@
 //** This file contain the functions for do the different types of searchs */
 function searchArtist(){
     var finder = new Search($("#inputSearch").val(), $("#country").val(), $("#limit").val(), $("#explicit").val(), "musicArtist"); 
+    
     var datos = $.ajax(
         {
         type: "GET",
@@ -9,8 +10,6 @@ function searchArtist(){
     })
     
     .done(function() {
-        console.log(datos.responseJSON['results']);
-    
         for (var data of datos.responseJSON['results']) {
             // New Object Artist
             var itemArtist = new Artist(data['artistName'], data['primaryGenreName'], data['artistLinkUrl']);
@@ -155,17 +154,22 @@ function searchSong(){
             myNodeAudio.id = "id" + itemSong.id;
             myNodeAudio.src = itemSong.audio;
             //Audio controls
+            //Play
             var myNodeDivAudio = document.createElement('div');
             var myNodebuttonPlay = document.createElement('button');
-            myNodebuttonPlay.id = "play" + itemSong.id;
+            myNodebuttonPlay.setAttribute('marcador', itemSong.id);
+            myNodebuttonPlay.addEventListener('click', playSong); 
             myNodebuttonPlay.textContent = "Play";
+            //Pause
             var myNodebuttonPause = document.createElement('button');
-            myNodebuttonPause.id = "pause" + itemSong.id;
+            myNodebuttonPause.setAttribute('marcador', itemSong.id);
+            myNodebuttonPause.addEventListener('click', pauseSong);
             myNodebuttonPause.textContent = "Pause";
+            //Stop
             var myNodebuttonStop = document.createElement('button');
-            myNodebuttonStop.id = "stop" + itemSong.id;
+            myNodebuttonStop.setAttribute('marcador', itemSong.id);
+            myNodebuttonStop.addEventListener('click', stopSong);
             myNodebuttonStop.textContent = "Stop";
-
             // Link
             var myNodeLink = document.createElement('a');
             myNodeLink.textContent = "Link";
@@ -189,15 +193,31 @@ function searchSong(){
             myNode.append(myNodeCardBody);
             $("#display").append(myNode);  
 
-            document.getElementById("play"+itemSong.id).onclick = function(){
-                document.getElementById("id"+itemSong.id).play();
-            }   
-            document.getElementById("pause"+itemSong.id).onclick = function(){
-                document.getElementById("id"+itemSong.id).pause();
-            } 
-            document.getElementById("stop"+itemSong.id).onclick = function(){
-                document.getElementById("id"+itemSong.id).load();
-            } 
+            //Functions for control the music
+            // eslint-disable-next-line no-inner-declarations
+            function playSong(){
+                IDthis = this.getAttribute('marcador');
+                console.log (IDthis);
+                IDSelected = document.getElementById('id' + IDthis);
+                console.log (IDSelected);
+                IDSelected.play();
+            }
+            // eslint-disable-next-line no-inner-declarations
+            function pauseSong(){
+                IDthis = this.getAttribute('marcador');
+                console.log (IDthis);
+                IDSelected = document.getElementById('id' + IDthis);
+                console.log (IDSelected);
+                IDSelected.pause();
+            }
+            // eslint-disable-next-line no-inner-declarations
+            function stopSong(){
+                IDthis = this.getAttribute('marcador');
+                console.log (IDthis);
+                IDSelected = document.getElementById('id' + IDthis);
+                console.log (IDSelected);
+                IDSelected.load();
+            }
         }
 
     })

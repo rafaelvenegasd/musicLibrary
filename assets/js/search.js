@@ -28,7 +28,5 @@ $("#submit").click(function(event){
                searchVideo();
                 break;
         }
-        console.log(type);
-
     }   
 })

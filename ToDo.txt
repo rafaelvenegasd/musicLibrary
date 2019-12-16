@@ -1,16 +1,12 @@
+//In general 
+autocomplete of the inputSearch
+validate if the filters are off
+save in localstorage
+add to favorites
+delete from favorites
+connect the API of the countries
+
+
 //In the Songs and video-music
 function convertDate(),
 function convertLenght()
-
-
-//In general 
-connect the API of the countries
-add to favorites
-delete from favorites
-save in localstorage
-validate if the filters are off
-Search music videos by name
-autocomplete of the inputSearch
-
-
-

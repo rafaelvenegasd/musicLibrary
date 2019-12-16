@@ -1,13 +1,6 @@
 //** This file contain the function search*/
+$("#inputSearch").keypress(function(){
 
-$("#submit").click(function(event){
-    event.preventDefault();
-    //Validation
-    if ($("#inputSearch").val() == "" || $("#inputSearch").val() == null){
-        alert("Por favor escriba algo en el buscador");
-    }
-
-    else{
         clean($("#display"));
         // Type's Search Validation
         var type ="";
@@ -21,12 +14,11 @@ $("#submit").click(function(event){
                 break;
 
             case "Album":
-            searchAlbum();
+                searchAlbum();
                 break;
 
             case "Music-Video":
                searchVideo();
                 break;
         }
-    }   
 })

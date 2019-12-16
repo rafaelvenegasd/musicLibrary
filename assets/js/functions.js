@@ -1,7 +1,7 @@
 //** This file contain the functions for do the different types of searchs */
 function searchArtist(){
     var finder = new Search($("#inputSearch").val(), $("#country").val(), $("#limit").val(), $("#explicit").val(), "musicArtist"); 
-    
+
     var datos = $.ajax(
         {
         type: "GET",
@@ -52,8 +52,7 @@ function searchAlbum(){
     })
     
     .done(function() {
-        console.log(datos.responseJSON['results']); 
-    
+        console.log(datos.responseJSON['results']);
         for (var data of datos.responseJSON['results']) {
             // New Object Album
             var itemAlbum = new Album(data['collectionCensoredName'], data['artworkUrl100'], data['artistName'], data['collectionPrice'], data['trackCount'], data['releaseDate'], data['primaryGenreName']);

@@ -81,7 +81,7 @@ $("document").ready(function(){
             myNodeAddFavorites.classList = 'btn', 'btn-outline-light';
             myNodeAddFavorites.setAttribute('selected', itemSong.id);
             myNodeAddFavorites.addEventListener('click', saveData);
-            myNodeAddFavorites.addEventListener('click', addFavorites);
+            // myNodeAddFavorites.addEventListener('click', addFavorites);
             myNodeAddFavorites.textContent = "⭐";
             // Inserting
             myNodeTitle.append(myNodeAddFavorites);
@@ -120,31 +120,46 @@ $("document").ready(function(){
             }
 
             // Save in local Storage
-            function saveData(){
-                IDthis = this.getAttribute('selected');
-                IDSelected = document.getElementById('name' + IDthis).textContent;
-                localStorage.setItem("favorites", JSON.stringify(IDSelected));
-            }
-            // Function for favorites
-            function addFavorites(e){
-                e.preventDefault();  
-                // read the favorite from localStorage
+            function saveData(e){
+                e.preventDefault();
+                IDthis = this.getAttribute('selected'); 
+                IDSelected = document.getElementById('name' + IDthis).textContent; 
+                // read the favorites from localStorage
                 var favorites = localStorage.getItem("favorites") || "[]";
                 favorites = JSON.parse(favorites);
-                console.log(favorites);
-                // Look for the favorite
+                // Look for the favorites
                 var position = favorites.findIndex(function(e) {
-                    return e.id == data['trackId']; });
-                if (position > -1) {
+                    return e == IDSelected; });
+                console.log(position);
+                if (position != -1) {
                 // if the element exist, remove the element
                 favorites.splice(position, 1);
                 } else {
                 // else add to Favorites
-                favorites.push(data['trackId']);
+                favorites.push(IDSelected);
                 }
                 // Save the list of favorites 
                 localStorage.setItem("favorites", JSON.stringify(favorites));
             }
+            // // Function for favorites
+            // function addFavorites(e){
+            //     e.preventDefault();  
+            //     // read the favorites from localStorage
+            //     var favorites = localStorage.getItem("favorites") || "[]";
+            //     favorites = JSON.parse(favorites);
+            //     // Look for the favorite
+            //     var position = favorites.findIndex(function(e) {
+            //         return e.id == itemSong.id; });
+            //     if (position > -1) {
+            //     // if the element exist, remove the element
+            //     favorites.splice(position, 1);
+            //     } else {
+            //     // else add to Favorites
+            //     favorites.push(data['trackId']);
+            //     }
+            //     // Save the list of favorites 
+            //     localStorage.setItem("favorites", JSON.stringify(favorites));
+            // }
 
         }
     })
@@ -157,4 +172,3 @@ $("document").ready(function(){
 function clean(element){
     element.empty();
 }
-

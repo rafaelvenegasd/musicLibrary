@@ -5,8 +5,9 @@ function searchArtist(){
         {
         type: "GET",
         dataType: "jsonp",
-        url : "https://itunes.apple.com/search?" + "term=" + finder.term + "&" + "country=" + finder.country  + "&" + "explicit=" + finder.explicit  + "&" + "limit=" + finder.limit + "&" + "entity=" + finder.type 
+        url : "https://itunes.apple.com/search?" + "term=" + finder.term + "&" + "country=" + finder.country  + "&" + "explicit=" + finder.explicit  + "&" + "limit=" + finder.limit + "&" + "entity=" + finder.type
     })
+    
     
     .done(function() {
         for (var data of datos.responseJSON['results']) {

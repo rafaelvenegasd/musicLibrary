@@ -2,6 +2,7 @@
 
 
 $("document").ready(function(){
+    addFavorites();
     clean($("#display"));
     var datos = $.ajax(
         {
@@ -81,7 +82,7 @@ $("document").ready(function(){
             myNodeAddFavorites.classList = 'btn', 'btn-outline-light';
             myNodeAddFavorites.setAttribute('selected', itemSong.id);
             myNodeAddFavorites.addEventListener('click', saveData);
-            // myNodeAddFavorites.addEventListener('click', addFavorites);
+            myNodeAddFavorites.addEventListener('click', addFavorites);
             myNodeAddFavorites.textContent = "⭐";
             // Inserting
             myNodeTitle.append(myNodeAddFavorites);
@@ -130,7 +131,6 @@ $("document").ready(function(){
                 // Look for the favorites
                 var position = favorites.findIndex(function(e) {
                     return e == IDSelected; });
-                console.log(position);
                 if (position != -1) {
                 // if the element exist, remove the element
                 favorites.splice(position, 1);
@@ -141,26 +141,6 @@ $("document").ready(function(){
                 // Save the list of favorites 
                 localStorage.setItem("favorites", JSON.stringify(favorites));
             }
-            // // Function for favorites
-            // function addFavorites(e){
-            //     e.preventDefault();  
-            //     // read the favorites from localStorage
-            //     var favorites = localStorage.getItem("favorites") || "[]";
-            //     favorites = JSON.parse(favorites);
-            //     // Look for the favorite
-            //     var position = favorites.findIndex(function(e) {
-            //         return e.id == itemSong.id; });
-            //     if (position > -1) {
-            //     // if the element exist, remove the element
-            //     favorites.splice(position, 1);
-            //     } else {
-            //     // else add to Favorites
-            //     favorites.push(data['trackId']);
-            //     }
-            //     // Save the list of favorites 
-            //     localStorage.setItem("favorites", JSON.stringify(favorites));
-            // }
-
         }
     })
     .fail(function() {
@@ -171,4 +151,30 @@ $("document").ready(function(){
 
 function clean(element){
     element.empty();
+}
+
+// Function for favorites
+function addFavorites(){
+    // read the favorites from localStorage
+    clean($("#favorites"));
+    var tittle = document.createElement("h4");
+    tittle.textContent = "Favorites";
+
+    var favorites = localStorage.getItem("favorites") || "[]";
+    favorites = JSON.parse(favorites);
+    var ul = document.createElement("ul");
+    // Creatings the elements li
+    for (var i = 0; i < favorites.length; i++) {
+    var li = document.createElement("li");
+    li.textContent = favorites[i];
+    // // con un enlace al producto
+    // var a = document.createElement("a");
+    // a.href = favorites[i].url;
+    // a.textContent = favorites[i].nombre;
+    // li.appendChild(a); 
+    ul.append(li);
+    }
+    // agregamos el producto donde correspona
+    $("#favorites").append(tittle);
+    $("#favorites").append(ul);
 }

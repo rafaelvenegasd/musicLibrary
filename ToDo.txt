@@ -1,9 +1,8 @@
 //In general 
-save in localstorage
-add to favorites
-delete from favorites
+add favorites to the rest of the searchs
 validate if the filters are off
 connect the API of the countries
+
 
 
 //In the Songs and video-music

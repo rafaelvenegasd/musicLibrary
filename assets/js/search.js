@@ -3,7 +3,6 @@ $("#inputSearch").keypress(function(){
 
         clean($("#display"));
         // Type's Search Validation
-        var type ="";
         switch ($("#type").val()) {
             case "Artist":
                 searchArtist();

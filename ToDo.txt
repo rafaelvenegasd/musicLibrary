@@ -1,8 +1,8 @@
 //In general 
-validate if the filters are off
 save in localstorage
 add to favorites
 delete from favorites
+validate if the filters are off
 connect the API of the countries
 
 

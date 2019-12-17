@@ -1,7 +1,6 @@
 //** This file contain the functions for do the different types of searchs */
 function searchArtist(){
     var finder = new Search($("#inputSearch").val(), $("#country").val(), $("#limit").val(), $("#explicit").val(), "musicArtist"); 
-
     var datos = $.ajax(
         {
         type: "GET",
@@ -29,10 +28,14 @@ function searchArtist(){
             // Link
             var myNodeLink = document.createElement('p');
             myNodeLink.textContent = "Link: " +itemArtist.link;
+            // Add to Favorites
+            var myNodeAddFavorites = document.createElement('button');
+            myNodeAddFavorites.textContent = "⭐";
                 // Inserting
             myNodeCardBody.append(myNodeTitle);
             myNodeCardBody.append(myNodeGenre);
             myNodeCardBody.append(myNodeLink);
+            myNodeCardBody.append(myNodeAddFavorites);
             myNode.append(myNodeCardBody);
             $("#display").append(myNode);    
         }
@@ -52,7 +55,6 @@ function searchAlbum(){
     })
     
     .done(function() {
-        console.log(datos.responseJSON['results']);
         for (var data of datos.responseJSON['results']) {
             // New Object Album
             var itemAlbum = new Album(data['collectionCensoredName'], data['artworkUrl100'], data['artistName'], data['collectionPrice'], data['trackCount'], data['releaseDate'], data['primaryGenreName']);

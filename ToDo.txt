@@ -4,7 +4,6 @@ validate if the filters are off
 connect the API of the countries
 
 
-
 //In the Songs and video-music
 function convertDate(),
 function convertLenght()

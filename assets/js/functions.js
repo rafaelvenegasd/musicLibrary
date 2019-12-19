@@ -8,7 +8,6 @@ function searchArtist(){
         url : "https://itunes.apple.com/search?" + "term=" + finder.term + "&" + "country=" + finder.country  + "&" + "explicit=" + finder.explicit  + "&" + "limit=" + finder.limit + "&" + "entity=" + finder.type
     })
     
-    
     .done(function() {
         for (var data of datos.responseJSON['results']) {
             // New Object Artist
@@ -22,7 +21,7 @@ function searchArtist(){
             // Tittle
             var myNodeTitle = document.createElement('h4');
             myNodeTitle.classList.add('card-title');
-            myNodeTitle.id = 'name' + itemSong.id;
+            myNodeTitle.id = 'name' + itemArtist.id;
             myNodeTitle.textContent = itemArtist.artistName;
             // Genre
             var myNodeGenre = document.createElement('p');
@@ -95,7 +94,7 @@ function searchAlbum(){
             // Tittle
             var myNodeTitle = document.createElement('h4');
             myNodeTitle.classList.add('card-title');
-            myNodeTitle.id = 'name' + itemSong.id;
+            myNodeTitle.id = 'name' + itemAlbum.id;
             myNodeTitle.textContent = itemAlbum.albumName;
             // ArtistName
             var myNodeArtistName = document.createElement('p');
@@ -164,6 +163,7 @@ function searchAlbum(){
 
 function searchSong(){
     var finder = new Search($("#inputSearch").val(), $("#country").val(), $("#limit").val(), $("#explicit").val(), "musicTrack"); 
+    console.log(finder);
     var datos = $.ajax(
         {
         type: "GET",
@@ -335,7 +335,7 @@ function searchVideo(){
                 // Tittle
                 var myNodeTitle = document.createElement('h4');
                 myNodeTitle.classList.add('card-title');
-                myNodeTitle.id = 'name' + itemSong.id;
+                myNodeTitle.id = 'name' + itemVideo.id;
                 myNodeTitle.textContent = itemVideo.songName;
                 // Caratula
                 var myNodeCaratula = document.createElement('img');

@@ -1,6 +1,5 @@
 //** This file contain the functions for load content by default when the page is ready */
 
-
 $("document").ready(function(){
     addFavorites();
     clean($("#display"));
@@ -167,11 +166,6 @@ function addFavorites(){
     for (var i = 0; i < favorites.length; i++) {
     var li = document.createElement("li");
     li.textContent = favorites[i];
-    // // con un enlace al producto
-    // var a = document.createElement("a");
-    // a.href = favorites[i].url;
-    // a.textContent = favorites[i].nombre;
-    // li.appendChild(a); 
     ul.append(li);
     }
     // agregamos el producto donde correspona

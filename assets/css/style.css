@@ -48,3 +48,11 @@ aside{
 audio{
     width: 220px;
 }
+
+.card{
+    max-width: 250px;
+}
+
+iframe{
+    max-width: 100%;
+}

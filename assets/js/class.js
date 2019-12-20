@@ -61,5 +61,3 @@ class Search{
         this.type = type;
     }
 }
-
-$("document").pa

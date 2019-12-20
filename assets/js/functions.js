@@ -45,6 +45,7 @@ $("#favorites").append(tittle);
 $("#favorites").append(ul);
 }
 
+// Convert data in minutes
 function convertMinutes(val){
     return Math.floor(val/60000);
 }
@@ -74,7 +75,6 @@ for (let i = 1; i <= 200; i++) {
 $(document).on('change', '#country', function (callback) {
     selectedCountry();
 })
-
 function selectedCountry(params) {
     return ($("#country option:selected").attr('id'));
 }

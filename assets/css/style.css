@@ -9,6 +9,10 @@
     background-color: #161c27;
 }
 
+.bg-light{
+    background-color: rgb(195, 195, 195);
+}
+
 .social a{
     padding: 15px;
 }
@@ -55,4 +59,13 @@ audio{
 
 iframe{
     max-width: 100%;
+}
+
+label{
+    color: rgb(38, 185, 38);
+    font-weight: bolder;
+}
+
+#limit, #explicit, #country{
+    max-width: fit-content;
 }

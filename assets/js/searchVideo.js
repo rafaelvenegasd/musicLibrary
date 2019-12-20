@@ -2,7 +2,7 @@
 function searchVideo(){
     addFavorites();
     clean($("#display"));
-    var finder = new Search($("#inputSearch").val(), $("#country").val(), $("#limit").val(), $("#explicit").val(), "musicVideo"); 
+    var finder = new Search($("#inputSearch").val(), selectedCountry(), $("#limit").val(), $("#explicit").val(), "musicVideo"); 
     var datos = $.ajax(
         {
         type: "GET",

@@ -1,7 +1,7 @@
 function searchAlbum(){
     addFavorites();
     clean($("#display"));
-    var finder = new Search($("#inputSearch").val(), $("#country").val(), $("#limit").val(), $("#explicit").val(), "musicTrack"); 
+    var finder = new Search($("#inputSearch").val(), selectedCountry(), $("#limit").val(), $("#explicit").val(), "musicTrack"); 
     var datos = $.ajax(
         {
         type: "GET",

@@ -57,7 +57,7 @@ $.ajax({
     success: function(response){
         $.each(response, function (params) {
             $("#country").append(
-            '<option>' + response[params].a2 + ' - ' + response[params].name  + '</option>'
+            '<option id="'+ response[params].a2 + '">' + response[params].a2 + ' - ' + response[params].name  + '</option>'
             );
         })
     }
@@ -70,5 +70,11 @@ for (let i = 1; i <= 200; i++) {
     $("#limit").append("<option value='"+i+"'>"+i+"</option>");   
 }
 
+// Get the country selected
+$(document).on('change', '#country', function (callback) {
+    selectedCountry();
+})
 
-
+function selectedCountry(params) {
+    return ($("#country option:selected").attr('id'));
+}

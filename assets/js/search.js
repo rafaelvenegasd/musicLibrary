@@ -1,6 +1,5 @@
 //** This file contain the function search*/
 $("#inputSearch").keypress(function(){
-
         clean($("#display"));
         // Type's Search Validation
         switch ($("#type").val()) {

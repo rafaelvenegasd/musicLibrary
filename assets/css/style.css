@@ -69,3 +69,7 @@ label{
 #limit, #explicit, #country{
     max-width: fit-content;
 }
+
+li{
+    list-style: square;
+}

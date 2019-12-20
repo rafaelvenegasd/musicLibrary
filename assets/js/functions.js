@@ -49,3 +49,21 @@ function convertMinutes(val){
     return Math.floor(val/60000);
 }
 
+// Get the list of countries
+$.ajax({
+    url: "https://www.liferay.com/api/jsonws/country/get-countries/",
+    dataType:"json",
+    type:"GET",
+    success: function(response){
+        $.each(response, function (params) {
+            $("#country").append(
+            '<option>' + response[params].a2 + ' - ' + response[params].name  + '</option>'
+            );
+        })
+    }
+}).fail(function(error){
+    console.log(error);
+});
+
+
+

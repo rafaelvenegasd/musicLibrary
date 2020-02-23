@@ -1,4 +1,8 @@
-function searchAlbum(){
+import  Album  from "../classes/album";
+import  Search  from "../classes/search";
+import { addFavorites, clean, convertMinutes } from "./functions";
+import "./functions";
+export function searchAlbum(){
     addFavorites();
     clean($("#display"));
     var finder = new Search($("#inputSearch").val(), selectedCountry(), $("#limit").val(), $("#explicit").val(), "musicTrack"); 

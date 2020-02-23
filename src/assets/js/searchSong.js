@@ -1,12 +1,17 @@
-// ** This file contain the functions for load content by default when the page is ready */
-$("document").ready(function(){
+// ** This file contain the function for search by songs */
+import  Song  from "../classes/song";
+import  Search  from "../classes/search";
+import { addFavorites, clean , selectedCountry, convertMinutes} from "./functions";
+import "./functions";
+export function searchSong(){
     addFavorites();
     clean($("#display"));
+    var finder = new Search($("#inputSearch").val(), selectedCountry(), $("#limit").val(), $("#explicit").val(), "musicTrack"); 
     var datos = $.ajax(
         {
         type: "GET",
         dataType: "jsonp",
-        url : "https://itunes.apple.com/search?term=Foster+the+People&country=us&limit=20" 
+        url : "https://itunes.apple.com/search?" + "term=" + finder.term + "&" + "country=" + finder.country  + "&" + "explicit=" + finder.explicit  + "&" + "limit=" + finder.limit + "&" + "entity=" + finder.type 
     })
 
     .done(function() {
@@ -22,7 +27,7 @@ $("document").ready(function(){
                         <p>Artist: ${itemSong.artistName}</p>
                         <p>Album: ${itemSong.albumName}</p>
                         <p>Price: ${itemSong.price}</p>
-                        <p>Lenght: ${itemSong.lenght}</p>
+                        <p>Lenght: ${convertMinutes(itemSong.lenght)}</p>
                         <p>Creation date: ${itemSong.creationDate}</p>
                         <p>Genre: ${itemSong.musicGenre}</p>
                         <a href="${itemSong.link}" target="_blank" >Link </a>
@@ -33,6 +38,4 @@ $("document").ready(function(){
     .fail(function() {
     console.log("error");
     });
-})
-
-
+}

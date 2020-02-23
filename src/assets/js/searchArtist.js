@@ -1,4 +1,7 @@
-function searchArtist(){
+import Artist from "../classes/artist";
+import Search from "../classes/search";
+import { addFavorites, clean , selectedCountry, convertMinutes} from "./functions";
+export function searchArtist(){
     addFavorites();
     clean($("#display"));
     var finder = new Search($("#inputSearch").val(), selectedCountry(), $("#limit").val(), $("#explicit").val(), "musicArtist"); 

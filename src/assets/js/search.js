@@ -1,5 +1,10 @@
 //** This file contain the function search*/
-$("#inputSearch").keypress(function(){
+import { clean } from "./functions";
+import { searchAlbum } from "./searchAlbum";
+import { searchArtist } from "./searchArtist";
+import { searchSong } from "./searchSong";
+import { searchVideo } from "./searchVideo";
+export default $("#inputSearch").keypress(function(){
         clean($("#display"));
         // Type's Search Validation
         switch ($("#type").val()) {

@@ -1,5 +1,9 @@
 // ** This file contain the function for search by videos */
-function searchVideo(){
+import  MusicVideo  from "../classes/video";
+import  Search  from "../classes/search";
+import { addFavorites, clean, selectedCountry, convertMinutes } from "./functions";
+import "./functions";
+export function searchVideo(){
     addFavorites();
     clean($("#display"));
     var finder = new Search($("#inputSearch").val(), selectedCountry(), $("#limit").val(), $("#explicit").val(), "musicVideo"); 

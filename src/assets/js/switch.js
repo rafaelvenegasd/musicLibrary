@@ -1,9 +1,11 @@
 //** This file contain the function search*/
-import { clean } from "./functions";
-import { searchAlbum } from "./searchAlbum";
-import { searchArtist } from "./searchArtist";
-import { searchSong } from "./searchSong";
-import { searchVideo } from "./searchVideo";
+import { clean } from "./functions/functions";
+import { searchAlbum } from "./searchs/searchAlbum";
+import { searchArtist } from "./searchs/searchArtist";
+import { searchSong } from "./searchs/searchSong";
+import { searchVideo } from "./searchs/searchVideo";
+
+
 export default $("#inputSearch").keypress(function(){
         clean($("#display"));
         // Type's Search Validation

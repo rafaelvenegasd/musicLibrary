@@ -1,8 +1,8 @@
 // ** This file contain the function for search by videos */
-import  MusicVideo  from "../classes/video";
-import  Search  from "../classes/search";
-import { addFavorites, clean, selectedCountry, convertMinutes } from "./functions";
-import "./functions";
+import  MusicVideo  from "../../classes/video";
+import  Search  from "../../classes/search";
+import { clean, selectedCountry, convertMinutes } from "../functions/functions";
+import { addFavorites } from "../functions/favorites";
 export function searchVideo(){
     addFavorites();
     clean($("#display"));

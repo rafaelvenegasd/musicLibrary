@@ -1,6 +1,4 @@
-#logo:hover{
-    color: rgb(236, 232, 232);
-}
+
 .bg-Dark{
     background-color: #1c2331;
 }
@@ -66,7 +64,7 @@ label{
     font-weight: bolder;
 }
 
-#limit, #explicit, #country{
+.limit, .explicit, .country{
     max-width: fit-content;
 }
 

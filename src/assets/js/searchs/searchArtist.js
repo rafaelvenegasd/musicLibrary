@@ -1,6 +1,7 @@
-import Artist from "../classes/artist";
-import Search from "../classes/search";
-import { addFavorites, clean , selectedCountry, convertMinutes} from "./functions";
+import Artist from "../../classes/artist";
+import Search from "../../classes/search";
+import { clean , selectedCountry, convertMinutes} from "../functions/functions";
+import { addFavorites } from "../functions/favorites";
 export function searchArtist(){
     addFavorites();
     clean($("#display"));

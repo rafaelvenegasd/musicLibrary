@@ -1,7 +1,7 @@
-import  Album  from "../classes/album";
-import  Search  from "../classes/search";
-import { addFavorites, clean, convertMinutes } from "./functions";
-import "./functions";
+import  Album  from "../../classes/album";
+import  Search  from "../../classes/search";
+import { clean, convertMinutes, selectedCountry } from "../functions/functions";
+import { addFavorites } from "../functions/favorites";
 export function searchAlbum(){
     addFavorites();
     clean($("#display"));

@@ -1,5 +1,6 @@
 // ** This file contain the functions for load content by default when the page is ready */
-import { addFavorites, clean } from "./functions";
+import { clean } from "./functions/functions";
+import { addFavorites } from "./functions/favorites";
 import Song from "../classes/song";
 export default function onload(){
     addFavorites();

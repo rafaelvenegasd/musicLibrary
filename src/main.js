@@ -1,13 +1,11 @@
-import Album from "./assets/classes/album";
-import Artist from "./assets/classes/artist";
-import Search from "./assets/classes/search";
-import Song from "./assets/classes/song";
-import MusicVideo from "./assets/classes/video";
 import "./assets/css/main.scss";
 
-import {clean, display, addFavorites, convertMinutes, countries, options, countrySelected, selectedCountry} from "./assets/js/functions"
+import {clean,convertMinutes, selectedCountry} from "./assets/js/functions/functions"
+import {addFavorites} from "./assets/js/functions/favorites"
+import {countries} from "./assets/js/functions/countries"
+import {display} from "./assets/js/functions/localStorage"
 import onload from "./assets/js/onload"
-import "./assets/js/search"
+import "./assets/js/switch"
 
 onload();
 display("#display");

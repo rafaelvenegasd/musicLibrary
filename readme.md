@@ -2,17 +2,19 @@
 Music Libary es un proyecto que presenta la opción de realizar búsquedas y mostrar resultados en un catálogo, a través de la conexión con la API de itunes. 
 
 ## Instalación
-Para ejecutar la biblioteca de música necesitas descargar NPM desde el siguiente enlace: 
+Para ejecutar la biblioteca de música luego de haber clonado el repositorio: 
 
-https://www.npmjs.com/get-npm
+- Instala npm desde la consola: 
+```$npm install
 
-Lo siguiente es instalar npm desde la consola: 
-$npm install
+- Inicializa NPM con los valores por defecto
+```$npm init -y
 
-Inicializamos el NPM con los valores por defecto
-$npm init -y
+- Instala las dependencias necesarias 
+```$npm install
 
-Estas acciones crearan los archivos necesarios para correr las dependencias con las que trabaja el proyecto. Luego para ejecutarlo solo debes abrir el archivo index.html. 
+- Corre el proyecto
+```$npm run start 
 
 ## Uso
 La interfaz muestra un buscador, en el cual al presionar una tecla generará los términos de búsqueda. 

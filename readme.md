@@ -5,16 +5,16 @@ Music Libary es un proyecto que presenta la opción de realizar búsquedas y mos
 Para ejecutar la biblioteca de música luego de haber clonado el repositorio: 
 
 - Instala npm desde la consola: 
-```$npm install
+```$npm install```
 
 - Inicializa NPM con los valores por defecto
-```$npm init -y
+```$npm init -y```
 
 - Instala las dependencias necesarias 
-```$npm install
+```$npm install```
 
 - Corre el proyecto
-```$npm run start 
+```$npm run start``` 
 
 ## Uso
 La interfaz muestra un buscador, en el cual al presionar una tecla generará los términos de búsqueda. 
